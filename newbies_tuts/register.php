@@ -1,0 +1,16 @@
+<?php
+//register.php
+//Inserts new student record to tbl_students table in newbies_db database.
+	include("./SQLConnect.php");
+	
+	$query = mysqli_query($con,"INSERT INTO tbl_students (studID, lastName, firstName, MI,course,yearlevel,user_level,status) VALUES ('$_POST[stud_ID]','$_POST[lastName]','$_POST[firstName]','$_POST[MI]','$_POST[course]','$_POST[yearLevel]','user','Active')") or die(mysql_error());
+	if(!$query){
+		echo "Alert! Student not added.";
+	}
+	else{
+		echo "Student successfully added!";
+	}
+	
+	echo "<a href='./index.php'><input type='button' value='Back'/></a>";
+	
+?>
